@@ -1,0 +1,53 @@
+/* .six-div-sec-div004 {
+    overflow-y: scroll;
+    height: 100vh;
+} */
+
+/* .six-div-sec-div004::-webkit-scrollbar {
+    width: 14px;
+    height: 12px;
+} */
+
+
+
+/* .six-div-sec-div004::-webkit-scrollbar-thumb {
+    background: #adadad; 
+} */
+
+.scroll-container {
+    position: relative;
+    height: 100vh;
+    /* width: 300px; */
+    border: 1px solid #ccc;
+    overflow: hidden;
+  }
+  
+  .content {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  .content::-webkit-scrollbar-track {
+    background: #d3d3d3;
+    /* border-radius: 20px; */
+}
+  
+  /* .scroll-up,
+  .scroll-down {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: lightgrey;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1;
+  } */
+  
+  /* .scroll-up {
+    top: 0;
+  }
+  
+  .scroll-down {
+    bottom: 0;
+  } */

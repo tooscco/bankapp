@@ -1,0 +1,189 @@
+<div class="px-7 bg-[#3f4948] text-[#f5f5f5]">
+  <div class="flex justify-between">
+    <div class="flex gap-10 ms-5">
+      <h6 class="pt-3"><a href="#" class="hover:underline"><img src="tee6.svg" alt="teeboy" class="w-[40px]" ></a></h6>
+      <div class="flex gap-3 pt-5">
+        <h6><a href="#" class="hover:underline text-[19px]">Careers</a></h6>
+        <h6><a href="#" class="hover:underline text-[19px]">Contact Us</a></h6>
+        <h6><a href="#" class="hover:underline text-[19px]">Media</a></h6>
+    </div>
+    </div>
+    <div class="flex gap-3 pt-5">
+      <h6><a href="#" class="hover:underline text-[19px]">Security</a></h6>
+      <h6><a routerLink="/userSignup" class="hover:underline text-[19px]">Sign Up</a></h6>
+      <h6><a routerLink="/userSignin" class="hover:underline text-[19px]">Sign In</a></h6>
+      <h6><a href="#" class="hover:underline text-[19px]">9ja logo</a></h6>
+    </div>
+  </div>
+</div>
+
+
+<div class="mx-auto mt-3 w-[40%] shadow-lg p-5">
+    <form [formGroup]="usersign">
+      <h5 class="text-center hover:underline">Sing Up here</h5>
+    <div >
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>Surname</mat-label>
+          <input matInput placeholder="Placeholder" name="surname" formControlName="surname" [class.is-valid]="usersign.get('surname')?.valid" [class.is-invalid]="usersign.get('surname')?.invalid && usersign.get('surname')?.touched" required>
+        </mat-form-field>
+        <p *ngIf="usersign.get('surname')?.invalid && usersign.get('surname')?.touched">
+          <span class="text-red-500" *ngIf="usersign.get('surname')?.errors?.['required']">This field is required</span>
+
+          <span class="text-red-500" *ngIf="usersign.get('surname')?.errors?.['pattern']">Name must start with an uppercase letter.</span>
+        </p>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Placeholder" name="firstname" formControlName="firstname" [class.is-vaild]="usersign.get('firstname')?.valid" [class.is-invalid]="usersign.get('firstname')?.invalid && usersign.get('firstname')?.touched" requried>
+        </mat-form-field>
+        <p *ngIf="usersign.get('firstname')?.invalid && usersign.get('firstname')?.touched">
+          <span class="text-red-500" *ngIf="usersign.get('firstname')?.errors?.['required']">This field is required</span>
+
+          <span class="text-red-500" *ngIf="usersign.get('firstname')?.errors?.['pattern']">Name must start with an uppercase letter.</span>
+     </p>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Placeholder" name="lastname" formControlName="lastname" [class.is-valid]="usersign.get('lastname')?.valid" [class.is-invalid]="usersign.get('lastname')?.invalid && usersign.get('lastname')?.touched" requried>
+        </mat-form-field>
+        <p *ngIf="usersign.get('lastname')?.invalid && usersign.get('lastname')?.touched">
+          <span class="text-red-500" *ngIf="usersign.get('lastname')?.errors?.['required']">This field is required</span>
+
+          <span class="text-red-500" *ngIf="usersign.get('lastname')?.errors?.['pattern']">Name must start with an upercase letter.</span>
+        </p>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Placeholder" name="username" formControlName="username" [class.is-valid]="usersign.get('username')?.valid" [class.is-invalid]="usersign.get('username')?.invalid && usersign.get('username')?.dirty" requried>
+        </mat-form-field>
+        <p *ngIf="usersign.get('username')?.invalid && usersign.get('username')?.dirty">
+          <span class="text-red-500" *ngIf="usersign.get('username')?.errors?.['required']">This field is required!</span>
+        </p>
+        <p *ngIf="usermsg" class="text-red-500">{{ usermsg }}</p>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>Phone Number</mat-label>
+          <input matInput placeholder="Placeholder" name="pnumber" formControlName="pnumber" [class.is-valid]="usersign.get('pnumber')?.valid" [class.is-invalid]="usersign.get('pnumber')?.invalid && usersign.get('pnumber')?.touched" requried>
+        </mat-form-field>
+        <p *ngIf="usersign.get('pnumber')?.invalid && usersign.get('pnumber')?.touched">
+          <span class="text-red-500" *ngIf="usersign.get('pnumber')?.errors?.['required']">This field is required!</span>
+        </p>
+        <p *ngIf="phonemsg" class="text-red-500">{{ phonemsg }}</p>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Placeholder" name="email" formControlName="email" [class.is-valid]="usersign.get('email')?.valid" [class.is-invalid]="usersign.get('email')?.invalid && usersign.get('email')?.touched" requried>
+        </mat-form-field>
+        <p *ngIf="usersign.get('email')?.invalid && usersign.get('email')?.touched">
+          <span class="text-red-500" *ngIf="usersign.get('email')?.errors?.['required']">Email is required.</span>
+  
+          <span class="text-red-500" *ngIf="usersign.get('email')?.errors?.['email']">The entered email is not in the correct format.</span>
+     </p>
+     <p *ngIf="msg" class="text-red-500">{{ msg }}</p>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>Password</mat-label>
+          <input 
+          matInput 
+          [type]="hide() ? 'password' : 'text'"
+           placeholder="Placeholder" 
+           name="password" 
+           formControlName="password"
+           [class.is-valid]="usersign.get('passord')?.valid"
+           minlength="6"
+           [class.is-invalid]="usersign.get('password')?.invalid && usersign.get('password')?.dirty" 
+           requried
+           >
+          <button
+          mat-icon-button
+          matSuffix
+          (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()"
+          class="me-5"
+        >
+          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <p *ngIf="usersign.get('password')?.invalid && usersign.get('password')?.dirty">
+        <span 
+        class="text-red-500" 
+        *ngIf="usersign.get('password')?.errors?.['required']">
+        Password is required!</span>
+        <span 
+        class="text-red-500" 
+        *ngIf="usersign.get('password')?.errors?.['pattern']"> 
+        Password must contain at least one uppercase letter and one special character.</span>
+        <span 
+        class="text-red-500" 
+        *ngIf="usersign.get('password')?.errors?.['minlength']"> 
+        The minimum length requried is 6.</span>
+    </p>
+      </div>
+      <div>
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>Address</mat-label>
+          <input 
+          matInput 
+          placeholder="Placeholder" 
+          name="address" 
+          formControlName="address"
+          [class.is-valid]="usersign.get('address')?.valid"
+          [class.is-invalid]="usersign.get('address')?.invalid && usersign.get('address')?.touched" 
+          requried>
+        </mat-form-field>
+        <p *ngIf="usersign.get('address')?.invalid && usersign.get('address')?.touched">
+          <span 
+          class="text-red-500" 
+          *ngIf="usersign.get('address')?.errors?.['required']">
+          This field is reqiured!</span>
+          <span class="text-red-500" *ngIf="usersign.get('address')?.errors?.['pattern']">Address must start with an upercase letter.</span>
+        </p>
+      </div>
+      <div class="flex border pt-4 pb-3 px-3 bg-[#3f4948] mb-3 text-white rounded-tr-md rounded-tl-md">
+        <label>Gender: </label>
+        <div class="ms-10">
+          <label for="male" class="me-2 cursor-pointer">Male:</label>
+          <input type="radio" id="male" name="gender" value="Male" formControlName="gender" requried>
+          <label for="female" class="ms-5 me-2 cursor-pointer">Female:</label>
+          <input type="radio" id="female" name="gender" value="Female" formControlName="gender">
+          <label for="other" class="ms-5 me-2 cursor-pointer">Other:</label>
+          <input type="radio" id="other" name="gender" value="Other" formControlName="gender">
+        </div>
+      </div>
+      <div class=" mb-4">
+        <label>Birthdate:</label>
+        <input 
+        type="date" 
+        class="ms-3 p-2 rounded outline-none border"
+         name="bdate" 
+         formControlName="bdate"
+         [class.is-valid]="usersign.get('bdate')?.valid"
+         [class.is-invalid]="usersign.get('bdate')?.invalid && usersign.get('bdate')?.touched" 
+         required>
+      </div>
+      <p *ngIf="usersign.get('bdate')?.invalid && usersign.get('bdate')?.touched">
+        <span class="text-red-500">The date of birth field is required!</span>
+      </p>
+      <div >
+        <input type="checkbox" id="checkbox" name="checkbox" value="Checkbox" formControlName="checkbox" requried>
+        <label for="checkbox">I agree to follow the <a href="#" class="text-blue-600">terms</a> and <a href="#" class="text-blue-600">conditions</a>. <a class="text-blue-600 hover:underline" routerLink="/userSignin">Login here</a>
+        </label>
+      </div>
+      <div class=" mx-auto ">
+        <button type="button" class="w-[100%] border p-2 hover:bg-[#3f4948] text-2xl hover:text-[#f5f5f5] hover:underline bg-[#f5f5f5] rounded-tr-md rounded-tl-md" (click)="btnSignup()" [disabled]="usersign.invalid">Sign Up</button>
+      </div>
+    </form>
+      
+</div>
+  
+    
+          
+
+

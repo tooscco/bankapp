@@ -1,0 +1,80 @@
+<div class="px-7 bg-[#3f4948] text-[#f5f5f5]">
+    <div class="flex justify-between">
+      <div class="flex gap-10 ms-5">
+        <h6 class="pt-3"><a href="#" class="hover:underline"><img src="tee6.svg" alt="teeboy" class="w-[40px]" ></a></h6>
+        <div class="flex gap-3 pt-5">
+          <h6><a href="#" class="hover:underline text-[19px]">Careers</a></h6>
+          <h6><a href="#" class="hover:underline text-[19px]">Contact Us</a></h6>
+          <h6><a href="#" class="hover:underline text-[19px]">Media</a></h6>
+      </div>
+      </div>
+      <div class="flex gap-3 pt-5">
+        <h6><a href="#" class="hover:underline text-[19px]">Security</a></h6>
+        <h6><a routerLink="/userSignup" class="hover:underline text-[19px]">Sign Up</a></h6>
+        <h6><a routerLink="/userSignin" class="hover:underline text-[19px]">Sign In</a></h6>
+        <h6><a href="#" class="hover:underline text-[19px]">9ja logo</a></h6>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mx-auto mt-3 w-[40%] shadow-lg p-5">
+    <form [formGroup]="usersignin">
+      <h5 class="text-center hover:underline">Sing In here</h5>
+      <p *ngIf="msg" class="text-red-500">{{msg}}</p>
+      <div>
+      <mat-form-field appearance="fill" class="w-[100%]">
+        <mat-label>Email or Username</mat-label>
+        <input matInput placeholder="Placeholder" name="email" formControlName="email" [class.is-valid]="usersignin.get('email')?.valid" [class.is-invalid]="usersignin.get('email')?.invalid && usersignin.get('email')?.touched" requried>
+      </mat-form-field>
+      <p *ngIf="usersignin.get('email')?.invalid && usersignin.get('email')?.touched">
+        <span class="text-red-500" *ngIf="usersignin.get('email')?.errors?.['required']">Email is required.</span>
+
+        <span class="text-red-500" *ngIf="usersignin.get('email')?.errors?.['email']">The entered email is not in the correct format.</span>
+   </p>
+    </div>
+      <div>
+        <mat-form-field appearance="fill" class="w-[100%]">
+          <mat-label>Password</mat-label>
+          <input 
+          matInput 
+          [type]="hide() ? 'password' : 'text'"
+           placeholder="Placeholder" 
+           name="password" 
+           formControlName="password"
+           [class.is-valid]="usersignin.get('passord')?.valid"
+           minlength="6"
+           [class.is-invalid]="usersignin.get('password')?.invalid && usersignin.get('password')?.dirty" 
+           requried
+           >
+          <button
+          mat-icon-button
+          matSuffix
+          (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()"
+          class="me-5"
+        >
+          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <p *ngIf="usersignin.get('password')?.invalid && usersignin.get('password')?.dirty">
+        <span 
+        class="text-red-500" 
+        *ngIf="usersignin.get('password')?.errors?.['required']">
+        Password is required!</span>
+        <span 
+        class="text-red-500" 
+        *ngIf="usersignin.get('password')?.errors?.['pattern']"> 
+        Password must contain at least one uppercase letter and one special character.</span>
+        <span 
+        class="text-red-500" 
+        *ngIf="usersignin.get('password')?.errors?.['minlength']"> 
+        The minimum length requried is 6.</span>
+    </p>
+      </div>
+      <div class=" mx-auto ">
+        <button type="button" class="w-[100%] border p-2 hover:bg-[#3f4948] text-2xl hover:text-[#f5f5f5] hover:underline bg-[#f5f5f5] rounded-tr-md rounded-tl-md" (click)="btnSignin()" [disabled]="usersignin.invalid">Sign In</button>
+      </div>
+    </form>
+  </div>
